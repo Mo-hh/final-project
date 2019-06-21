@@ -5,8 +5,8 @@ import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 
 const initialState = {dataFromServer:[],
-                     TeacherEvaluation:[],
-                     courseEvaluation:[],
+                     TeacherEvaluation:0,
+                     courseEvaluation:0,
                      studentComent:[],
                      userNameValue:'',
                      passwordValue:'',
@@ -20,24 +20,24 @@ const reducer = (state = initialState, action) => {
  switch (action.type) {
    case 'updateCOURS':
      const changeCourseEv = action.event.target;
-     updateCourseEV.courseEvaluation[changeCourseEv]= action.event.target.value;
+     copyOfState.courseEvaluation= action.event.target.value;
      return copyOfState;
    case 'updateTCHER':
      const changeTeacherEV = action.event.target;
-     updateTeacherEV.TeacherEvaluation[changeTeacherEV]= action.event.target.value;
+     copyOfState.TeacherEvaluation= action.event.target.value;
      return copyOfState;
    case 'updateSTcoment':
      const changeStudentCom = action.event.target;
-     updateStudentComnt.studentComent[changeStudentCom]= action.event.target.value;
+    copyOfState.studentComent= action.event.target.value;
 
    return copyOfState;
 
 
 
    case 'SUBMIT':
-     copyOfState.courseEVarray.puch(copyOfState.courseEvaluation);
-     copyOfState.teacherEVarray.puch(copyOfState.TeacherEvaluation);
-     copyOfState.studentComArray.puch(copyOfState.studentComent);
+     copyOfState.courseEVarray.push(copyOfState.courseEvaluation);
+     copyOfState.teacherEVarray.push(copyOfState.TeacherEvaluation);
+     copyOfState.studentComArray.push(copyOfState.studentComent);
      copyOfState.courseEvaluation = 0;
      copyOfState.TeacherEvaluation= 0;
      copyOfState.studentComent= '';

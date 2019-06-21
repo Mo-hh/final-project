@@ -12,10 +12,18 @@ export default class AdminPage extends Component{
 
   }
 
+
+
+
+
 addClass(ev){
   this.setState({addClassClicked:true})
-}
 
+  setTimeout(() => {
+    this.setState({addClassClicked: false});
+  }, 10000)
+
+  }
 
 
 
